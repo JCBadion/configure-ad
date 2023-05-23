@@ -84,43 +84,22 @@ Once the VM has successfully rebooted, you will be required to log back in. Howe
 <p>
 <img src="https://i.imgur.com/HwVT6RG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <img src="https://i.imgur.com/dlOZkBQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/3hi73Kx.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
 </p>
 <p>
 Now that we have our Active Directory up and running, open up the Start Menu and type in "Active Directory Users and Computers", then navigate to "mydomain.com", or what you have chosen to name your domain controller. Right-click on the domain controller's name, and we will create two new Organizational Units (OUs) labeling them as _EMPLOYEES & _ADMINS (This is to make the changes transparent for this tutorial). 
   
-In the _ADMINS folder we will create a new employee (user) who will be an administrator named "Jane Doe", with the usename "Jane_Admin", and with the same password we gave domain controller (for simplicity). When filling out the password, make sure not to check the box requiring password reset at first login. To add Jane Doe to the Domain Admins Security Group, first we will right click on her user and go down to 'properties'. Next navigate to the tab 'member of' and you'll see that she is a member of "Domain Users". Click on the "Add" button and type in "Domain Admins". Check Names to see if the security group exists. Once confirmed, click "OK", then "Apply" and "OK" under Jane Doe Properties. Jane Doe should now be considered an Administrator for our newly-created Active Directory. To verify this, log out of DC-1 and log back in as Jane_Admin (Do not just close and reopen the VM, you will have to actively sign out of the user within the VM). Once we are logged in we can open up the command prompt and type in "whoami", and we will see that we are in-fact logged in as Jane_Admin.
+In the _ADMINS folder we will create a new employee (user) who will be an administrator named "Jane Doe", with the usename "Jane_Admin", and with the same password we gave domain controller (for simplicity). When filling out the password, make sure not to check the box requiring password reset at first login. To add Jane Doe to the Domain Admins Security Group, first we will right click on her user and go down to 'properties'. Next navigate to the tab 'member of' and you'll see that she is a member of "Domain Users". Click on the "Add" button and type in "Domain Admins". Check Names to see if the security group exists. Once confirmed, click "OK", then "Apply" and "OK" under Jane Doe Properties. Jane Doe should now be considered an Administrator for our newly-created Active Directory. To verify this, log out of DC-1 and log back in as Jane_Admin (Do not just close and reopen the VM, you will have to actively sign out of the user within the VM). Once we are logged in we can open up the command prompt and type in "whoami", and we will see that we are in-fact logged in as Jane_Admin. From here on out we will continue using Jane_Admin for DC-1.
 </p>
 <br />
 
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
 </p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+<p
+Next we will now attempt to join CLient-1 to DC-1's Active Directory.
