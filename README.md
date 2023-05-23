@@ -60,22 +60,33 @@ After setting DC-1's Private IP Address to "Static", log in to the Client-1 VM v
 <img src="https://i.imgur.com/a1qS8Ii.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Accessing DC-1 will immediately start up the Server Manager program shown in the first image above upon first logging in. To enable the Client VM to ping our Domain Controller, first click on the Start Menu and type in "Control Panel". Navigate to "System and Security" -> Windows Defender Firewall, and on the left click on "Advanced Settings". On the left side of the Advanced Settings, click on "Inbound Rules" and look for "Core Networking Diagnostics - ICMP Echo Request (ICMPv4-in). There will be two of them: One for Domain and another for Public, Private. Right-click on each of them and enable both rules. One you finish that, go back to CLient-1 and you will see that there is now a verified ping from the Client VM to the Domain VM.</p>
+Accessing DC-1 will immediately start up the Server Manager program shown in the first image above upon first logging in. To enable the Client VM to ping our Domain Controller, first click on the Start Menu and type in "Control Panel". Navigate to "System and Security" -> Windows Defender Firewall, and on the left click on "Advanced Settings". On the left side of the Advanced Settings, click on "Inbound Rules" and look for "Core Networking Diagnostics - ICMP Echo Request (ICMPv4-in). There will be two of them: One for Domain and another for Public, Private. Right-click on each of them and enable both rules. One you finish that, go back to CLient-1 and you will see that there is now a verified ping from the Client VM to the Domain VM. Once a ping is established, press Ctrl+C to cancel the perpetual ping.</p>
+<br />
+
+<h3>Active Directory Installation Setup</h3>
+
+<p>
+<img src="https://i.imgur.com/fTlqShB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/fTlqShB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/fTlqShB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/8PKp778.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+</p>
+<p>
+To begin installing the Active Diretory, go back to the "Server Manager" Dashboard in DC-1 and click on "Add Roles and Features". Click Next until you reach 'Server Roles' and check the box for "Active Directory Domain Services". Click next from there and "Install".
+  
+ After installing, go back to the "Server Manager" Dashboard and at the upper right of the program, there will be a flag with a notification on it. Click on it and click "Promote this server to a domain controller". Click on "Setup a new forest" and it will give you the option to set up a new domain name. For this tutorial we will go with "Mydomain.com". Set up the password and click 'Next' until you hit "Install". Installing will reset the VM as well as the Remote Desktop Connection.
+  
+Once the VM has successfully rebooted, you will be required to log back in. However, instead of using the username created for the VM, you will use the name you set for the server. In this tutorial's case, it will be "mydomain.com\labuser". Keep in mind that the password itself for logging in has not changed, only the username.
+
+</p>
 <br />
 
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 </p>
 <br />
 
