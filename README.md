@@ -78,15 +78,18 @@ To begin installing the Active Diretory, go back to the "Server Manager" Dashboa
  After installing, go back to the "Server Manager" Dashboard and at the upper right of the program, there will be a flag with a notification on it. Click on it and click "Promote this server to a domain controller". Click on "Setup a new forest" and it will give you the option to set up a new domain name. For this tutorial we will go with "Mydomain.com". Set up the password and click 'Next' until you hit "Install". Installing will reset the VM as well as the Remote Desktop Connection.
   
 Once the VM has successfully rebooted, you will be required to log back in. However, instead of using the username created for the VM, you will use the name you set for the server. In this tutorial's case, it will be "mydomain.com\labuser". Keep in mind that the password itself for logging in has not changed, only the username.
-
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/HwVT6RG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/dlOZkBQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
 </p>
 <p>
-
+Now that we have our Active Directory up and running, open up the Start Menu and type in "Active Directory Users and Computers", then navigate to "mydomain.com", or what you have chosen to name your domain controller. Right-click on the domain controller's name, and we will create two new Organizational Units (OUs) labeling them as _EMPLOYEES & _ADMINS (This is to make the changes transparent for this tutorial). 
+  
+In the _ADMINS folder we will create a new employee (user) who will be an administrator named "Jane Doe", with the usename "Jane_Admin", and with the same password we gave domain controller (for simplicity). When filling out the password, make sure not to check the box requiring password reset at first login. To add Jane Doe to the Domain Admins Security Group, first we will right click on her user and go down to 'properties'. Next navigate to the tab 'member of' and you'll see that she is a member of "Domain Users". Click on the "Add" button and type in "Domain Admins". Check Names to see if the security group exists. Once confirmed, click "OK", then "Apply" and "OK" under Jane Doe Properties. Jane Doe should now be considered an Administrator for our newly-created Active Directory. To verify this, log out of DC-1 and log back in as Jane_Admin (Do not just close and reopen the VM, you will have to actively sign out of the user within the VM). Once we are logged in we can open up the command prompt and type in "whoami", and we will see that we are in-fact logged in as Jane_Admin.
 </p>
 <br />
 
