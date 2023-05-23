@@ -70,7 +70,6 @@ Accessing DC-1 will immediately start up the Server Manager program shown in the
 <img src="https://i.imgur.com/fTlqShB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <img src="https://i.imgur.com/fTlqShB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <img src="https://i.imgur.com/8PKp778.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
 </p>
 <p>
 To begin installing the Active Diretory, go back to the "Server Manager" Dashboard in DC-1 and click on "Add Roles and Features". Click Next until you reach 'Server Roles' and check the box for "Active Directory Domain Services". Click next from there and "Install".
@@ -85,7 +84,6 @@ Once the VM has successfully rebooted, you will be required to log back in. Howe
 <img src="https://i.imgur.com/HwVT6RG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <img src="https://i.imgur.com/dlOZkBQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <img src="https://i.imgur.com/3hi73Kx.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
 </p>
 <p>
 Now that we have our Active Directory up and running, open up the Start Menu and type in "Active Directory Users and Computers", then navigate to "mydomain.com", or what you have chosen to name your domain controller. Right-click on the domain controller's name, and we will create two new Organizational Units (OUs) labeling them as _EMPLOYEES & _ADMINS (This is to make the changes transparent for this tutorial). 
@@ -95,11 +93,9 @@ In the _ADMINS folder we will create a new employee (user) who will be an admini
 <br />
 
 <p>
+<img src="https://i.imgur.com/GvSjZs9.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
+  
 </p>
 <p
-Next we will now attempt to join CLient-1 to DC-1's Active Directory.
+Next we will now attempt to join CLient-1 to the DC-1 Active Directory. To do this, return to Client-1's VM, and type in "About" in the Start Menu. Go to "Rename this PC (Advanced) at the right, and click on the "Change" button. Change the setting from "workgroup", to "Domain", and fill in "mydomain.com". You'll immedaitely notice that it does not work because 'mydomain.com' could not be contacted. This is because Client-1 is currently using a public DNS and is unable to establish a connection to the Active Directory. To fix this, we need to go into Azure and change Client-1's DNS to DC-1's Private IP Address.
