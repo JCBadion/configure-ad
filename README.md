@@ -80,6 +80,8 @@ Once the VM has successfully rebooted, you will be required to log back in. Howe
 </p>
 <br />
 
+<h3>Administrator User Setup</h3>
+
 <p>
 <img src="https://i.imgur.com/HwVT6RG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <img src="https://i.imgur.com/dlOZkBQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -92,10 +94,45 @@ In the _ADMINS folder we will create a new employee (user) who will be an admini
 </p>
 <br />
 
+<h3>Joining Client-1 to DC-1</h3>
+
 <p>
 <img src="https://i.imgur.com/GvSjZs9.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-  
+<img src="https://i.imgur.com/aTxhhEs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/ZWM6GZs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
 </p>
-<p
-Next we will now attempt to join CLient-1 to the DC-1 Active Directory. To do this, return to Client-1's VM, and type in "About" in the Start Menu. Go to "Rename this PC (Advanced) at the right, and click on the "Change" button. Change the setting from "workgroup", to "Domain", and fill in "mydomain.com". You'll immedaitely notice that it does not work because 'mydomain.com' could not be contacted. This is because Client-1 is currently using a public DNS and is unable to establish a connection to the Active Directory. To fix this, we need to go into Azure and change Client-1's DNS to DC-1's Private IP Address.
+<p>
+Next we will now attempt to join Client-1 to the DC-1 Active Directory. To do this, return to Client-1's VM, and type in "About" in the Start Menu. Go to "Rename this PC (Advanced) at the right, and click on the "Change" button. Change the setting from "workgroup", to "Domain", and fill in "mydomain.com". You'll immedaitely notice that it does not work because 'mydomain.com' could not be contacted. This is because Client-1 is currently using a public DNS and is unable to establish a connection to the Active Directory. To fix this, we need to go into Azure and change Client-1's DNS to DC-1's Private IP Address.
+  
+Go back to Client-1 in Azure and go to "Networking". From there, click on the client name next to "Network Interface" and it will take you into Client-1's Networking. On the left, go to "DNS Servers" and change the DNS Server from "Inherit from Virtual Network" to "Custom". Fill in the Custom DNS with DC-1's Private IP Address, and click Update. Once the update is completed, restart Client-1, log back in to the VM and try again. Go to the "About" page of Client-1, go to "Rename this PC (Advanced)", click on "Change" and switch from workgroup to domain. Type in the domain name, in this case "mydomain.com", and Client-1 will have a successful connection to the Active Directory this time and restart one more time. After Client-1 restarts, we can now log in to it with our Jane_Admin credentials because it is not connected to the domain.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/0cRWToW.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/ca2uN9W.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+</p>
+<p>
+Going back to the DC-1 Active Directory Computers and Users page, we can see that Client-1 is connected to the Domain Controller now, and can receive and send data to and from the Domain.
+  
+However, we want all users within the domain to be able to access this computer. So what we will do is log into Client-1 as Jane_Admin, open up the "About" Page from the start menu again, but this time open up the "Remote Desktop" tab in the right. Under "User Accounts" click on "Select Users that can remotely access this PC" Click Add and type in "Domain Users" and click ok. This will allow any user registered within the domain to be able to access this computer remotely, not just administrative users. 
+</p>
+<br />
+
+<h3>Creating New Users</h3>
+
+<p>
+<img src="https://i.imgur.com/cqR7Ezg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/1cIiHNA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+To test this, we'll need to create a bunch of users that have access to this remote desktop. Return to DC-1's VM, logged in as Jane_Admin and open up Powershell ISE (As an Administrator). To speed things up we'll be using a script created to generate a bunch of random accounts in our _EMPLOYEES Folder that we created earlier. Every user generated from this script will have a random first and last name, and every user will have the same password assigned to them.
+  
+Lastly to test that these accounts do in-fact work, we will log into Client-1 with one of the newly created Usernames. For this example we will log in with Fico.Xidu.
+  
+As you can see in the final image above, we have successfully logged in with a randomly generated account. Using the command prompt we can see that we are still in Client-1 and we have indeed logged in with Fico Xidu. And our Client-1's DNS Server is the same as DC-1.
+</p>
+<br />
+
