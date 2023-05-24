@@ -23,9 +23,9 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>High-Level Deployment and Configuration Steps</h2>
 
 - Deploy VMs and ensure connectivity
-- Step 2
-- Step 3
-- Step 4
+- Install Active Directory and Create Administrator
+- Connect Client-1 to Newly-created Domain
+- Create Users to Access Client-1
 
 <h2>Deployment and Configuration Steps</h2>
 
