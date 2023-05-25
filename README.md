@@ -33,11 +33,11 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 
 <p>
-<h4>Placement</h4>
+<h4>DC-1 -> Networking</h4>
 <img src="https://i.imgur.com/OnWBg3I.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
+<h4>Network Interface -> IP Configuration</h4>
 <img src="https://i.imgur.com/R1hUhYY.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
+<h4>Assign IP to 'Static'</h4>
 <img src="https://i.imgur.com/fMczCTQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
@@ -50,7 +50,7 @@ Next we will set DC-1 NIC Private IP Address to "Static". To do this, go to DC-1
 <h3>Client to Domain Connection</h3>
 
 <p>
-<h4>Placement</h4>
+<h4>Ping to DC-1</h4>
 <img src="https://i.imgur.com/3VygnHR.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
@@ -59,11 +59,11 @@ After setting DC-1's Private IP Address to "Static", log in to the Client-1 VM v
 <br />
 
 <p>
-<h4>Placement</h4>
+<h4>Server Manager on DC-1</h4>
 <img src="https://i.imgur.com/P9k6qm6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
+<h4>Navigate to Windows Defender Firewall, Enable ICMPv4-in</h4>
 <img src="https://i.imgur.com/X9LOD9Z.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
+<h4>Client-1 Successful Ping to DC-1</h4>
 <img src="https://i.imgur.com/a1qS8Ii.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
@@ -73,13 +73,13 @@ Accessing DC-1 will immediately start up the Server Manager program shown in the
 <h3>Active Directory Installation Setup</h3>
 
 <p>
-<h4>Placement</h4>
+<h4>Enable Active Directory Domain Services</h4>
 <img src="https://i.imgur.com/fTlqShB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <h4>Placement</h4>
 <img src="https://i.imgur.com/fTlqShB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <h4>Placement</h4>
 <img src="https://i.imgur.com/fTlqShB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
+<h4>Deploy Config, Add New Forest</h4>
 <img src="https://i.imgur.com/8PKp778.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
@@ -94,11 +94,11 @@ Once the VM has successfully rebooted, you will be required to log back in. Howe
 <h3>Administrator User Setup</h3>
 
 <p>
-<h4>Placement</h4>
+<h4>Accessing Active Directory</h4>
 <img src="https://i.imgur.com/HwVT6RG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
+<h4>New Folders in Active Directory</h4>
 <img src="https://i.imgur.com/dlOZkBQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
+<h4>Log into DC-1 as New Admin</h4>
 <img src="https://i.imgur.com/3hi73Kx.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
@@ -111,11 +111,11 @@ In the _ADMINS folder we will create a new employee (user) who will be an admini
 <h3>Joining Client-1 to DC-1</h3>
 
 <p>
-<h4>Placement</h4>
+<h4>Failed Computer Connection to Active Directory</h4>
 <img src="https://i.imgur.com/GvSjZs9.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
+<h4>Change Client-1's DNS to DC-1 Private IP</h4>
 <img src="https://i.imgur.com/aTxhhEs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
+<h4>Client-1 Successful Connection to Active Directory</h4>
 <img src="https://i.imgur.com/ZWM6GZs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
 </p>
@@ -127,9 +127,9 @@ Go back to Client-1 in Azure and go to "Networking". From there, click on the cl
 <br />
 
 <p>
-<h4>Placement</h4>
+<h4>Client-1 in Active Directory</h4>
 <img src="https://i.imgur.com/0cRWToW.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
+<h4>Allow Domain Users to log into Client-1</h4>
 <img src="https://i.imgur.com/ca2uN9W.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
 </p>
@@ -143,9 +143,9 @@ However, we want all users within the domain to be able to access this computer.
 <h3>Creating New Users</h3>
 
 <p>
-<h4>Placement</h4>
+<h4>Script to Make New users</h4>
 <img src="https://i.imgur.com/cqR7Ezg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
+<h4>Successful Login to Client-1 with New Username</h4>
 <img src="https://i.imgur.com/1cIiHNA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
