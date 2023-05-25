@@ -62,12 +62,12 @@ After setting DC-1's Private IP Address to "Static", log in to the Client-1 VM v
 <h4>Server Manager on DC-1</h4>
 <img src="https://i.imgur.com/P9k6qm6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <h4>Navigate to Windows Defender Firewall, Enable ICMPv4-in</h4>
-<img src="https://i.imgur.com/X9LOD9Z.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/lLun5ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <h4>Client-1 Successful Ping to DC-1</h4>
 <img src="https://i.imgur.com/a1qS8Ii.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Accessing DC-1 will immediately start up the Server Manager program shown in the first image above upon first logging in. To enable the Client VM to ping our Domain Controller, first click on the Start Menu and navigate to Windows Defender Firewll, and on the left click on "Advanced Settings". On the left side of the Advanced Settings, click on "Inbound Rules" and look for "Core Networking Diagnostics - ICMP Echo Request (ICMPv4-in). There will be two of them: One for Domain and another for Public, Private. Right-click on each of them and enable both rules. One you finish that, go back to CLient-1 and you will see that there is now a verified ping from the Client VM to the Domain VM. Once a ping is established, press Ctrl+C to cancel the perpetual ping.</p>
+Accessing DC-1 will immediately start up the Server Manager program shown in the first image above upon first logging in. To enable the Client VM to ping our Domain Controller, first click on the Start Menu and type in "Windows Defender Firewall with Advanced Security". Click on "Inbound Rules" and look for "Core Networking Diagnostics - ICMP Echo Request (ICMPv4-in)". There will be two of them: One for Domain and another for Public, Private. Enable both rules, go back to CLient-1 and you will see that there is now a verified ping from the Client VM to the Domain VM.</p>
 <br />
 
 <h3>Active Directory Installation Setup</h3>
@@ -75,10 +75,8 @@ Accessing DC-1 will immediately start up the Server Manager program shown in the
 <p>
 <h4>Enable Active Directory Domain Services</h4>
 <img src="https://i.imgur.com/fTlqShB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
-<img src="https://i.imgur.com/fTlqShB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<h4>Placement</h4>
-<img src="https://i.imgur.com/fTlqShB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<h4>Promote to Domain Controller</h4>
+<img src="https://i.imgur.com/xTSuTll.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <h4>Deploy Config, Add New Forest</h4>
 <img src="https://i.imgur.com/8PKp778.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
