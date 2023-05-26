@@ -109,8 +109,17 @@ In the _ADMINS folder we will create a new employee (user) who will be an admini
 <h3>Joining Client-1 to DC-1</h3>
 
 <p>
+<h4>About your PC</h4>
+<img src="https://i.imgur.com/x9UcVoL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <h4>Failed Computer Connection to Active Directory</h4>
 <img src="https://i.imgur.com/GvSjZs9.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+</p>
+<p>
+Next we will now attempt to join Client-1 to the DC-1 Active Directory. To do this, return to Client-1's VM, and type in "About" in the Start Menu, and access the "About your PC" page. Go to "Rename this PC (Advanced) at the right, and click on the "Change" button. Change the setting from "workgroup" to "Domain", and fill in the blank with "mydomain.com". You'll immedaitely notice that it does not work because 'mydomain.com' could not be contacted. This is because Client-1 is currently using a public DNS and is unable to establish a connection to the Active Directory directly.
+  
+  
+<p>
 <h4>Change Client-1's DNS to DC-1 Private IP</h4>
 <img src="https://i.imgur.com/aTxhhEs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <h4>Client-1 Successful Connection to Active Directory</h4>
@@ -118,9 +127,9 @@ In the _ADMINS folder we will create a new employee (user) who will be an admini
 
 </p>
 <p>
-Next we will now attempt to join Client-1 to the DC-1 Active Directory. To do this, return to Client-1's VM, and type in "About" in the Start Menu. Go to "Rename this PC (Advanced) at the right, and click on the "Change" button. Change the setting from "workgroup", to "Domain", and fill in "mydomain.com". You'll immedaitely notice that it does not work because 'mydomain.com' could not be contacted. This is because Client-1 is currently using a public DNS and is unable to establish a connection to the Active Directory. To fix this, we need to go into Azure and change Client-1's DNS to DC-1's Private IP Address.
+To fix this, we need to go into Azure and change Client-1's DNS to DC-1's Private IP Address.
   
-Go back to Client-1 in Azure and go to "Networking". From there, click on the client name next to "Network Interface" and it will take you into Client-1's Networking. On the left, go to "DNS Servers" and change the DNS Server from "Inherit from Virtual Network" to "Custom". Fill in the Custom DNS with DC-1's Private IP Address, and click Update. Once the update is completed, restart Client-1, log back in to the VM and try again. Go to the "About" page of Client-1, go to "Rename this PC (Advanced)", click on "Change" and switch from workgroup to domain. Type in the domain name, in this case "mydomain.com", and Client-1 will have a successful connection to the Active Directory this time and restart one more time. After Client-1 restarts, we can now log in to it with our Jane_Admin credentials because it is not connected to the domain.
+Minimize Client-1's VM and go back to Client-1 in Azure where it says "Networking" on the left. From there, click on the client name next to "Network Interface" and it will take you into Client-1's Networking. On the left, go to "DNS Servers" and change the DNS Server from "Inherit from Virtual Network" to "Custom". Fill in the Custom DNS with DC-1's Private IP Address, and click Update. Once the update is completed, restart Client-1, log back in to the VM and try again. Go to the "About" page of Client-1, go to "Rename this PC (Advanced)", click on "Change" and switch from workgroup to domain. Type in the domain name, in this case "mydomain.com", and Client-1 will have a successful connection to the Active Directory this time and restart one more time. After Client-1 restarts, we can now log in to it with our Jane_Admin credentials because it is not connected to the domain.
 </p>
 <br />
 
